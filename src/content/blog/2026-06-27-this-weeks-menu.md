@@ -7,27 +7,28 @@ updatedDate: 06/27/2026
 # Monday 
 
 
-| Chicken, Butternut & Cashew Curry | R130 | 330-350g |
-| --------------------------------- | ---- | -------- |
-| Rice | R20 | 150g |
-| Rainbow Seed Salad | R80 | 200g |
+| Chicken, Butternut & Cashew Curry | R130 |  |
+| --------------------------------- | ---- | --- |
+| Rice | R20 |  |
+| Rainbow Seed Salad | R80 |  |
 
 
 # Tuesday
 
 
-| Chicken Thai Curry | R130 | 330-350g |
-| ------------------ | ---- | -------- |
-| Rice | R20 | 150g |
-| Mashed Potato | R30 | 250g |
+| Chicken Thai Curry | R130 |  |
+| ------------------ | ---- | --- |
+| Rice | R20 |  |
+| Mashed Potato | R30 |  |
 
 
 # Wednesday 
 
 
-| Morrocan Lentil and Lamb |  | R140 | 330-350g |
-| ------------------------ | --- | ---- | -------- |
-| Couscous and peas |  | R30 | 180g |
-| Mashed potato |  | R30 | 250g |
+| Morrocan Lentil and Lamb |  | R140 |  |
+| ------------------------ | --- | ---- | --- |
+| Couscous and peas |  | R30 |  |
+| Mashed potato |  | R30 |  |
+|  |  |  |  |
 
 
