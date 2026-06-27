@@ -1,109 +1,58 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { title as SITE_TITLE, description as SITE_DESCRIPTION } from '../../config/site.json';
+import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
-
+const base = import.meta.env.BASE_URL;
 const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      main {
-        width: 960px;
-      }
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      ul li {
-        width: calc(50% - 1rem);
-      }
-      ul li * {
-        text-decoration: none;
-        transition: 0.2s ease;
-      }
-      ul li:first-child {
-        width: 100%;
-        margin-bottom: 1rem;
-        text-align: center;
-      }
-      ul li:first-child img {
-        width: 100%;
-      }
-      ul li:first-child .title {
-        font-size: 2.369rem;
-      }
-      ul li img {
-        margin-bottom: 0.5rem;
-        border-radius: 12px;
-      }
-      ul li a {
-        display: block;
-      }
-      .title {
-        margin: 0;
-        color: rgb(var(--black));
-        line-height: 1;
-      }
-      .date {
-        margin: 0;
-        color: rgb(var(--gray));
-      }
-      ul li a:hover h4,
-      ul li a:hover .date {
-        color: rgb(var(--accent));
-      }
-      ul a:hover img {
-        box-shadow: var(--box-shadow);
-      }
-      @media (max-width: 720px) {
-        ul {
-          gap: 0.5em;
-        }
-        ul li {
-          width: 100%;
-          text-align: center;
-        }
-        ul li:first-child {
-          margin-bottom: 0;
-        }
-        ul li:first-child .title {
-          font-size: 1.563em;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.id}/`}>
-                  <img width={720} height={360} src={post.data.heroImage} alt="" />
-                  <h4 class="title">{post.data.title}</h4>
-                  <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Layout title="Blog - Oscar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+    <h1 class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">Blog Posts</h1>
+
+    <section aria-label="Blog post listing">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <article class="blog-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col h-full transition-all duration-200 hover:-translate-y-1 hover:shadow-lg" aria-labelledby={`post-title-${post.id}`}>
+            {post.data.heroImage && (
+              <picture>
+            <source srcset={`{post.data.heroImage.replace(/^\//, '').replace(/\.(png|jpg|jpeg)$/, '.webp')}`} 
+                  type="image">
+                <img
+                  src={post.data.heroImage}
+                  class="w-full mx-auto object-cover"
+                  alt={`Featured image for ${post.data.title}`}
+                  loading="lazy"
+                  width="720"
+                  height="360"
+                />
+              </picture>
+            )}
+            <div class="p-6 flex flex-col flex-grow">
+              <h2 id={`post-title-${post.id}`} class="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">{post.data.title}</h2>
+              <p class="text-gray-600 dark:text-gray-400 mb-4 flex-grow">{post.data.description}</p>
+              <div class="mt-auto">
+                <time datetime={post.data.pubDate.toISOString()} class="text-gray-500 dark:text-gray-400 text-sm block mb-2">
+                  {post.data.pubDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+                <div class="text-right">
+                  <a
+                    href={`${base}blog/${post.id}`}
+                    class="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
+                    aria-label={`Read full article: ${post.data.title}`}
+                  >
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
