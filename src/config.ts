@@ -6,17 +6,17 @@
 
 export const SITE_CONFIG = {
   // Basic site information
-  title: "My Blog",
-  description: "A modern blog built with Astro",
-  author: "Oscar",
-  email: "oscar.hartsuiker@gmail.com",
+  title: "Saucy Stuff",
+  description: "Healthy Homecooked meals",
+  author: "Stacey",
+  email: "saucystuff.stacey@gmail.com",
 
   // Social media links
   // Remove or leave empty any platforms you don't use
   socialLinks: {
-    github: "oscar",
-    twitter: "oscar",
-    linkedin: "oscar",
+    github: "",
+    twitter: "",
+    linkedin: "",
     youtube: "", // Leave empty if not used
   },
 
