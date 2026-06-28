@@ -6,7 +6,11 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title={`${SITE_CONFIG.title} - Home`} showCopyright={false} compactFooter={true}>
-  <div class="hero min-h-screen"></div>
+<div
+  class="hero min-h-screen bg-cover bg-center"
+  style={`background-image: url('${base}media/salad.jpg')`}
+  >
+ <div class="absolute inset-0 bg-black/40"></div>
   <div class="absolute inset-0 flex items-center justify-center">
     <main role="main" class="text-center px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
@@ -32,5 +36,6 @@ const base = import.meta.env.BASE_URL;
         </a>
       </div>
     </main>
+  </div>
   </div>
 </Layout>
