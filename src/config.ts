@@ -61,6 +61,6 @@ export const AUTHOR_INFO = {
 // Navigation menu items
 export const NAV_ITEMS = [
   { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Menu" },
   { href: "/about", label: "About" },
 ];
