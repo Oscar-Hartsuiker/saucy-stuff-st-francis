@@ -36,20 +36,20 @@ updatedDate: 06/27/2026
 # Thursday
 
 
-| Cottage Pie | R120 |  
+| Cottage Pie | R120 |
 | ------------------ | ---- |
-| Rainbow Seed Salad | R80 |  
-| Steamed Gem Squash | R20 |  
-| Couscous and peas | R30 |  
+| Rainbow Seed Salad | R80 |
+| Steamed Gem Squash | R20 |
+| Couscous and peas | R30 |
 
 
 # Friday
 
 
-| Butter Chicken Curry | R130 |  
+| Butter Chicken Curry | R130 |
 | -------------------- | ---- |
-| Golden Lentil Dahl | R100 |  
-| Basmati rice | R20 |  
-| Rainbow Seed Salad | R80 |  
+| Golden Lentil Dahl | R100 |
+| Basmati rice | R20 |
+| Rainbow Seed Salad | R80 |
 
 
