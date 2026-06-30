@@ -3,7 +3,7 @@ title: Pre Order Menu For this Week
 description: Priced per portion 330-350g*Meals are prepared with cold pressed 
   coconut oil or olive oil. Gluten free unless stipulated.
 pubDate: 06/30/2026
-updatedDate: 06/30/2026
+updatedDate: 07/01/2026
 ---
 # *Monday*
 
