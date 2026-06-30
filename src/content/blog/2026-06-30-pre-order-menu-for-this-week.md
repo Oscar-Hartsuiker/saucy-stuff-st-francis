@@ -1,0 +1,54 @@
+---
+title: Pre Order Menu For this Week
+description: Priced per portion 330-350g*Meals are prepared with cold pressed 
+  coconut oil or olive oil. Gluten free unless stipulated.
+pubDate: 06/30/2026
+updatedDate: 06/30/2026
+---
+# *Monday*
+
+| R130 | Chicken, Butternut & Cashew Curry |
+
+| R20 | Basmati Rice |
+
+| R80 | Rainbow Seed Salad |
+
+# *Tuesday*
+
+| R130 | Red Thai Chicken |
+
+| R20 | Basmati Rice |
+
+| R30 | Mashed potatoes |
+
+# *Wednesday*
+
+| R140 | Morrocan Lentil & Lamb |
+
+| R30 | Mashed potatoes |
+
+| R30 | Couscous and peas |
+
+| R80 | Rainbow Seed Salad |
+
+| R20 | Steamed Gem Squash |
+
+# *Thursday*
+
+| R120 | Cottage Pie |
+
+| R20 | Steamed Gem Squash |
+
+| R30 | Couscous and peas |
+
+# *Friday*
+
+| R130 | Butter Chicken Curry |
+
+| R100 | Golden Lentil Dahl |
+
+| R20 | Basmati Rice |
+
+| R80 | Rainbow Seed Salad |
+
+| R20 | Steamed Gem Squash |
