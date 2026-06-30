@@ -1,35 +1,46 @@
 ---
 // Header component
-import DarkModeToggle from './DarkModeToggle.astro';
-import { NAV_ITEMS } from '../config';
+import DarkModeToggle from "./DarkModeToggle.astro";
+import { NAV_ITEMS } from "../config";
 
 const base = import.meta.env.BASE_URL;
 
 // Filter out home link since it's in the logo
-const navLinks = NAV_ITEMS.filter(item => item.href !== '/');
+const navLinks = NAV_ITEMS.filter((item) => item.href !== "/");
 ---
 
-<header class="bg-white dark:bg-black w-full z-50 py-2 transition-colors duration-200">
+<header
+  class="bg-white dark:bg-black w-full z-50 py-2 transition-colors duration-200"
+>
   <!-- Skip to main content link for accessibility -->
-  <a href="#main-content" class="skip-to-content">
-    Skip to main content
-  </a>
+  <a href="#main-content" class="skip-to-content"> Skip to main content </a>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <nav class="flex items-center justify-between" aria-label="Main navigation">
       <a href={base} class="flex-shrink-0">
         <picture>
-          <source srcset={`${base}logo-place.png`} type="image/png">
-          <img src={`${base}logo.png`} alt="Saucy Stuff" class="h-10 w-auto" />
+          <source srcset={`${base}logo-place.png`} type="image/png" />
+          <img
+            src={`${base}logo.png`}
+            alt="Saucy Stuff"
+            class="h-auto w-auto"
+          />
         </picture>
       </a>
 
       <!-- Desktop menu and dark mode toggle -->
       <div class="hidden md:flex md:items-center md:space-x-1">
         <div class="flex items-center space-x-1 nav-links">
-          {navLinks.map(item => (
-            <a href={`${base}${item.href.replace(/^\//, "")}`} class="nav-link">{item.label}</a>
-          ))}
+          {
+            navLinks.map((item) => (
+              <a
+                href={`${base}${item.href.replace(/^\//, "")}`}
+                class="nav-link"
+              >
+                {item.label}
+              </a>
+            ))
+          }
         </div>
         <DarkModeToggle />
       </div>
@@ -46,12 +57,32 @@ const navLinks = NAV_ITEMS.filter(item => item.href !== '/');
         >
           <span class="sr-only">Open main menu</span>
           <!-- Hamburger icon -->
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-icon">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            id="menu-icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
           <!-- Close icon (hidden by default) -->
-          <svg class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="close-icon">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            class="h-6 w-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            id="close-icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
@@ -60,9 +91,16 @@ const navLinks = NAV_ITEMS.filter(item => item.href !== '/');
     <!-- Mobile menu (hidden by default) -->
     <div class="hidden md:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 text-center">
-        {navLinks.map(item => (
-          <a href={`${base}${item.href.replace(/^\//, "")}`} class="block px-3 py-2 text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-400 font-medium uppercase tracking-wide transition-colors duration-200">{item.label}</a>
-        ))}
+        {
+          navLinks.map((item) => (
+            <a
+              href={`${base}${item.href.replace(/^\//, "")}`}
+              class="block px-3 py-2 text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-400 font-medium uppercase tracking-wide transition-colors duration-200"
+            >
+              {item.label}
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>
@@ -70,17 +108,17 @@ const navLinks = NAV_ITEMS.filter(item => item.href !== '/');
 
 <script>
   // Mobile menu toggle
-  const menuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = document.getElementById('menu-icon');
-  const closeIcon = document.getElementById('close-icon');
+  const menuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+  const closeIcon = document.getElementById("close-icon");
 
-  menuButton?.addEventListener('click', () => {
-    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
-    mobileMenu?.classList.toggle('hidden');
-    menuIcon?.classList.toggle('hidden');
-    closeIcon?.classList.toggle('hidden');
+  menuButton?.addEventListener("click", () => {
+    const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", (!isExpanded).toString());
+    mobileMenu?.classList.toggle("hidden");
+    menuIcon?.classList.toggle("hidden");
+    closeIcon?.classList.toggle("hidden");
   });
 </script>
 
@@ -121,17 +159,19 @@ const navLinks = NAV_ITEMS.filter(item => item.href !== '/');
   .nav-links .nav-link::after {
     display: inline-block;
     opacity: 0;
-    transition: transform 0.3s, opacity 0.2s;
+    transition:
+      transform 0.3s,
+      opacity 0.2s;
   }
 
   .nav-links .nav-link::before {
-    content: '[';
+    content: "[";
     margin-right: 10px;
     transform: translateX(20px);
   }
 
   .nav-links .nav-link::after {
-    content: ']';
+    content: "]";
     margin-left: 10px;
     transform: translateX(-20px);
   }

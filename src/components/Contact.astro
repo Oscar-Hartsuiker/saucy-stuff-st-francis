@@ -1,0 +1,147 @@
+<div
+  class="max-w-md mx-auto bg-white p-6 rounded-2xl border border-slate-200 shadow-sm my-8"
+>
+  <h2 class="text-xl font-bold text-slate-900 mb-6">Request a Quote</h2>
+
+  <form action="https://formspree.io" method="POST" class="space-y-6">
+    <!-- Contact Info -->
+    <div>
+      <label class="block text-sm font-medium text-slate-700 mb-1"
+        >Your Name</label
+      >
+      <input
+        type="text"
+        name="name"
+        required
+        class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <!-- Interactive Menu (Services) -->
+    <div class="space-y-3">
+      <label class="block text-sm font-medium text-slate-700"
+        >Select Services</label
+      >
+
+      <!-- Service 1 -->
+      <label
+        class="flex items-center justify-between p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50"
+      >
+        <div class="flex items-center gap-3">
+          <input
+            type="checkbox"
+            name="services"
+            value="Web Design"
+            data-price="500"
+            class="service-checkbox w-4 h-4 text-blue-600 rounded"
+          />
+          <span class="text-slate-900 font-medium">Web Design</span>
+        </div>
+        <span class="text-slate-500">$500</span>
+      </label>
+
+      <!-- Service 2 -->
+      <label
+        class="flex items-center justify-between p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50"
+      >
+        <div class="flex items-center gap-3">
+          <input
+            type="checkbox"
+            name="services"
+            value="SEO Optimization"
+            data-price="300"
+            class="service-checkbox w-4 h-4 text-blue-600 rounded"
+          />
+          <span class="text-slate-900 font-medium">SEO Optimization</span>
+        </div>
+        <span class="text-slate-500">$300</span>
+      </label>
+
+      <!-- Service 3 -->
+      <label
+        class="flex items-center justify-between p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50"
+      >
+        <div class="flex items-center gap-3">
+          <input
+            type="checkbox"
+            name="services"
+            value="Content Writing"
+            data-price="200"
+            class="service-checkbox w-4 h-4 text-blue-600 rounded"
+          />
+          <span class="text-slate-900 font-medium">Content Writing</span>
+        </div>
+        <span class="text-slate-500">$200</span>
+      </label>
+    </div>
+
+    <!-- Hidden Input to send the total price with the form submission -->
+    <input
+      type="hidden"
+      name="total_estimated_price"
+      id="hidden-total-input"
+      value="0"
+    />
+
+    <!-- Total Price Display Box -->
+    <div
+      class="bg-slate-50 p-4 rounded-xl flex justify-between items-center border border-slate-100"
+    >
+      <span class="font-semibold text-slate-700">Estimated Total:</span>
+      <span class="text-2xl font-bold text-blue-600" id="total-price-display"
+        >$0</span
+      >
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors"
+    >
+      Send Request
+    </button>
+  </form>
+</div>
+
+<script>
+  function setupPriceCalculator() {
+    // 1. GRAB the elements
+    const checkboxes = document.querySelectorAll(".service-checkbox");
+    const totalDisplay = document.getElementById("total-price-display");
+    const hiddenInput = document.getElementById(
+      "hidden-total-input",
+    ) as HTMLInputElement;
+
+    if (!totalDisplay || checkboxes.length === 0) return;
+
+    function calculateTotal() {
+      let total = 0;
+
+      // Loop through all checkboxes to see which ones are ticked
+      checkboxes.forEach((checkbox) => {
+        const input = checkbox as HTMLInputElement;
+        if (input.checked) {
+          // Get the price from the 'data-price' attribute and convert text to a number
+          const price = parseInt(input.getAttribute("data-price") || "0", 10);
+          total += price;
+        }
+      });
+
+      // 4. CHANGE the HTML to display the new total
+      totalDisplay.textContent = `$${total}`;
+
+      // Update the hidden input so the final email includes the price
+      if (hiddenInput) {
+        hiddenInput.value = `$${total}`;
+      }
+    }
+
+    // 2. LISTEN for user clicks on every checkbox
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", calculateTotal);
+    });
+  }
+
+  // Safely run on standard load and Astro page swaps
+  setupPriceCalculator();
+  document.addEventListener("astro:after-swap", setupPriceCalculator);
+</script>
