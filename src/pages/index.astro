@@ -24,7 +24,7 @@ const testimonials = [
 
 const posts = await getCollection("blog"); // ← your collection name
 const sortedPosts = posts.sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => b.data.updatedDate.valueOf() - a.data.updatedDate.valueOf(),
 );
 const latestPost = sortedPosts[0];
 const { Content } = await render(latestPost); // ← renders the markdown body
@@ -121,8 +121,10 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     {
       latestPost && (
         <div class="p-4 md:p-8">
-          <h2 class="text-2xl font-bold mb-2">{latestPost.data.title}</h2>
-          <p class="text-gray-600 dark:text-gray-400 mb-4">
+          <h2 class="text-2xl text-center font-bold mb-2">
+            {latestPost.data.title}
+          </h2>
+          <p class="text-gray-600 text-center dark:text-gray-400 mb-4">
             {latestPost.data.description}
           </p>
 
@@ -143,6 +145,157 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .prose {
+    text-align: center;
+    max-width: 100%;
+    line-height: 1.8;
+    color: #374151;
+  }
+
+  .dark .prose {
+    text-align: center;
+    color: #d1d5db;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .dark .prose h1,
+  .dark .prose h2,
+  .dark .prose h3,
+  .dark .prose h4,
+  .dark .prose h5,
+  .dark .prose h6 {
+    color: #f3f4f6;
+  }
+
+  .prose h1 {
+    font-size: 2rem;
+  }
+
+  .prose h2 {
+    font-size: 1.5rem;
+  }
+
+  .prose h3 {
+    font-size: 1.25rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .dark .prose a {
+    color: #60a5fa;
+  }
+
+  .prose a:hover {
+    text-decoration: underline;
+  }
+
+  .prose pre {
+    background-color: #2d2d2d;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .dark .prose pre {
+    background-color: #1f2937;
+  }
+
+  .prose code {
+    background-color: #f4f4f4;
+    color: #1f2937;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
+  }
+
+  .dark .prose code {
+    background-color: #374151;
+    color: #e5e7eb;
+  }
+
+  .prose pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #f8f8f2;
+  }
+
+  .prose ul,
+  .prose ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid #ddd;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  .dark .prose blockquote {
+    border-left-color: #4b5563;
+    color: #9ca3af;
+  }
+
+  .prose img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+  }
+  .table {
+    align-self: center;
+  }
+  .prose table {
+    @apply mx-auto;
+    width: 90%;
+    border-collapse: collapse;
+  }
+
+  .prose th,
+  .prose td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  .dark .prose th,
+  .dark .prose td {
+    border-color: #4b5563;
+  }
+
+  .prose th {
+    background-color: #f4f4f4;
+    font-weight: 600;
+  }
+
+  .dark .prose th {
+    background-color: #374151;
   }
 </style>
 
