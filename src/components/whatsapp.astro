@@ -1,0 +1,61 @@
+---
+// src/components/WhatsAppContactForm.astro
+const whatsappNumber = "number here"; // your number, country code + digits, no + or spaces
+---
+
+<form
+  id="wa-contact-form"
+  class="max-w-md mx-auto border-2 p-6 rounded-2xl space-y-4"
+>
+  <div class="form-control">
+    <label class="label" for="wa-name">
+      <span class="label-text text-center">Name</span>
+    </label>
+    <input
+      id="wa-name"
+      name="name"
+      type="text"
+      placeholder="Your name"
+      class="input border-2 p-2 rounded-2xl w-full"
+      required
+    />
+  </div>
+
+  <div class="form-control">
+    <label class="label" for="wa-message">
+      <span class="label-text">Message</span>
+    </label>
+    <textarea
+      id="wa-message"
+      name="message"
+      class="textarea border-2 rounded-2xl p-4 w-full"
+      rows="4"
+      placeholder="What's on your mind?"
+      required></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary w-full px-6 py-3 bg-green-400 hover:bg-pink-400 dark:bg-green-400 dark:hover:bg-pink-400 text-gray-900
+            font-medium rounded-lg transition-colors duration-200"
+  >
+    Send via WhatsApp
+  </button>
+</form>
+
+<script define:vars={{ whatsappNumber }}>
+  const form = document.getElementById("wa-contact-form");
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = form.querySelector("#wa-name").value.trim();
+    const message = form.querySelector("#wa-message").value.trim();
+
+    const text = `Hi, my name is ${name}.\n\n${message}`;
+    const encodedText = encodeURIComponent(text);
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+    window.open(url, "_blank");
+  });
+</script>

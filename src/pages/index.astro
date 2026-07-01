@@ -2,7 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { SITE_CONFIG } from "../config";
 import { getCollection, render } from "astro:content";
-
+import Contact from "../components/whatsapp.astro";
+import About from "../components/about.astro";
 const base = import.meta.env.BASE_URL;
 const testimonials = [
   {
@@ -55,15 +56,15 @@ const { Content } = await render(latestPost); // ← renders the markdown body
             <div class="flex justify-center sm:alig gap-4">
               <a
                 href={`${base}blog`}
-                class="px-6 py-3 bg-yellow-300 hover:bg-pink-400 dark:bg-yellow-300 dark:hover:bg-pink-400 text-gray-900
-            font-medium rounded-lg transition-colors duration-200"
+                class="px-6 py-3 border-2 bg-yellow-400 hover:bg-pink-400 dark:bg-yellow-300 dark:hover:bg-pink-400 text-gray-900
+            font-medium rounded-full transition-colors duration-200"
               >
                 Menu
               </a>
               <a
                 href={`${base}about`}
-                class="px-6 py-3 bg-yellow-300 hover:bg-pink-400 dark:bg-yellow-300 dark:hover:bg-pink-400 text-gray-900
-            font-medium rounded-lg transition-colors duration-200"
+                class="px-6 py-3 border-2 bg-yellow-400 hover:bg-pink-400 dark:bg-yellow-300 dark:hover:bg-pink-400 text-gray-900
+            font-medium rounded-full transition-colors duration-200"
               >
                 About
               </a>
@@ -71,7 +72,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           </div>
         </div>
         <div
-          class="w-full sm:min-h-80 md:m-8 sm:mb-16 rounded-lg md:w-1/2 h-64 md:h-94 bg-cover bg-center"
+          class="w-full shadow sm:min-h-80 md:m-8 sm:mb-16 rounded-lg md:w-1/2 h-64 md:h-94 bg-cover bg-center"
           style={`background-image: url('${base}media/salad.jpg')`}
         >
         </div>
@@ -85,7 +86,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           >
             {
               testimonials.map((item) => (
-                <div class="w-full flex-shrink-0 snap-center bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <div class="w-full shrink-0 snap-center bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm">
                   <p class="text-lg italic text-slate-700 mb-4">
                     "{item.quote}"
                   </p>
@@ -118,9 +119,9 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         </div>
       </div>
     </div>
-    {
-      latestPost && (
-        <div class="p-4 md:p-8">
+    <div class="bg-slate-300">
+      <div class="p-2">
+        <div class="p-4 md:p-8 border-2 inset-4 bg-white rounded-2xl m-4">
           <h2 class="text-2xl text-center font-bold mb-2">
             {latestPost.data.title}
           </h2>
@@ -132,8 +133,14 @@ const { Content } = await render(latestPost); // ← renders the markdown body
             <Content />
           </div>
         </div>
-      )
-    }
+      </div>
+    </div>
+    <div class="justify-center m-4">
+      <Contact />
+    </div>
+    <div class="border-2 m-4 rounded-2xl">
+      <About />
+    </div>
   </main>
 </Layout>
 
