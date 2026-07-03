@@ -4,25 +4,8 @@ import { SITE_CONFIG } from "../config";
 import { getCollection, render } from "astro:content";
 import Contact from "../components/whatsapp.astro";
 import About from "../components/about.astro";
+import Testimonials from "../components/testimonials.astro";
 const base = import.meta.env.BASE_URL;
-const testimonials = [
-  {
-    quote: "YUM!",
-    author: "Sarah Jenkins",
-    role: ` url('${base}media/salad.jpg')`,
-  },
-  {
-    quote: "The dankest food in town",
-    author: "Oscar Hartsuiker",
-    role: "Lead Developer",
-  },
-  {
-    quote: "It's so F*cking good!.",
-    author: "Emma Rodriguez",
-    role: "NPC",
-  },
-];
-
 const posts = await getCollection("blog"); // ← your collection name
 const sortedPosts = posts.sort(
   (a, b) => b.data.updatedDate.valueOf() - a.data.updatedDate.valueOf(),
@@ -37,108 +20,51 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   compactFooter={true}
 >
   <main>
-    <div class="min-h-dvh align-middle">
-      <div
-        class="flex items-center md:items-center flex-col-reverse md:flex-row md:min-h-dvh"
-      >
-        <div class="w-1/2 inset-0 content-center sm:mt-8">
-          <div role="main" class="text-center text-2xl mt-8">
-            <div class="m-1">
+    <div
+      class="min-w-full flex justify-center shadow min-h-dvh sm:mb-16 bg-cover bg-center"
+      style={`background-image: url('${base}media/salad.jpg')`}
+    >
+      <div class="min-h-dvh content-center">
+        <div class=" p-8 rounded-2xl bg-white m-4 shadow-2xl">
+          <div class="text-center text-2xl ">
+
               <h1
-                class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+                class="text-[10vw] font-['Oblata_Display']  font-logo whitespace-nowrap text-center w-full md:text-gray-900 dark:text-gray-900"
               >
                 {SITE_CONFIG.title}
               </h1>
-              <p class="text-l sm:text-4xl text-gray-600 dark:text-gray-400">
+              <p class="text-l sm:text-2xl m-2 text-gray-600 dark:text-gray-900">
                 {SITE_CONFIG.description}
               </p>
             </div>
-            <div class="flex justify-center sm:alig gap-4">
-              <a
-                href={`${base}blog`}
-                class="px-6 py-3 border-2 bg-yellow-400 hover:bg-pink-400 dark:bg-yellow-300 dark:hover:bg-pink-400 text-gray-900
-            font-medium rounded-full transition-colors duration-200"
-              >
-                Menu
-              </a>
-              <a
-                href={`${base}about`}
-                class="px-6 py-3 border-2 bg-yellow-400 hover:bg-pink-400 dark:bg-yellow-300 dark:hover:bg-pink-400 text-gray-900
-            font-medium rounded-full transition-colors duration-200"
-              >
-                About
-              </a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="w-full shadow sm:min-h-80 md:m-8 sm:mb-16 rounded-lg md:w-1/2 h-64 md:h-94 bg-cover bg-center"
-          style={`background-image: url('${base}media/salad.jpg')`}
-        >
-        </div>
-      </div>
-      <div class="w-full max-w-2xl mx-auto px-4 py-8">
-        <div class="relative group">
-          <!-- Carousel Track: Uses CSS snap so it works naturally without JS -->
-          <div
-            id="testimonial-track"
-            class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-6 pb-4"
-          >
-            {
-              testimonials.map((item) => (
-                <div class="w-full shrink-0 snap-center bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm">
-                  <p class="text-lg italic text-slate-700 mb-4">
-                    "{item.quote}"
-                  </p>
-                  <div>
-                    <h4 class="font-semibold text-slate-900">{item.author}</h4>
-                    <im class="text-sm text-slate-500">{item.role}</im>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
 
-          <!-- Controls: Hidden by default, shown via JS if it loads successfully -->
-          <div id="carousel-controls" class="hidden justify-end gap-2 mt-4">
-            <button
-              id="prev-test"
-              class="p-2 rounded-full border border-slate-200 hover:bg-slate-100 bg-white shadow-sm text-slate-600"
-              aria-label="Previous testimonial"
-            >
-              &#10094;
-            </button>
-            <button
-              id="next-test"
-              class="p-2 rounded-full border border-slate-200 hover:bg-slate-100 bg-white shadow-sm text-slate-600"
-              aria-label="Next testimonial"
-            >
-              &#10095;
-            </button>
           </div>
         </div>
       </div>
     </div>
-    <div class="bg-slate-300">
-      <div class="p-2">
-        <div class="p-4 md:p-8 border-2 inset-4 bg-white rounded-2xl m-4">
-          <h2 class="text-2xl text-center font-bold mb-2">
-            {latestPost.data.title}
-          </h2>
-          <p class="text-gray-600 text-center dark:text-gray-400 mb-4">
-            {latestPost.data.description}
-          </p>
+   
+    <div class="m-4"><Testimonials /></div>
+    <div class="">
+        <div
+          class="p-4 m-4 md:p-8 border-amber-300  border-2 bg-white dark:bg-black rounded-2xl"
 
-          <div class="prose dark:prose-invert">
+        >
+        <!--    <h2 class="text-8xl text-center font-bold mb-2">
+            {latestPost.data.title}
+          </h2>  -->
+           <p class="text-gray-900 text-4xl text-center dark:text-gray-200 mb-4">
+            {latestPost.data.description}
+          </p> 
+
+          <div class="prose text-2xl dark:prose-invert">
             <Content />
           </div>
         </div>
       </div>
-    </div>
     <div class="justify-center m-4">
       <Contact />
     </div>
-    <div class="border-2 m-4 rounded-2xl">
+    <div class="border-2 text-2xl p-4 m-4  md:p-8 rounded-2xl">
       <About />
     </div>
   </main>
@@ -304,43 +230,14 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   .dark .prose th {
     background-color: #374151;
   }
-</style>
 
-<script>
-  function setupTestimonials() {
-    const track = document.getElementById("testimonial-track");
-    const prevBtn = document.getElementById("prev-test");
-    const nextBtn = document.getElementById("next-test");
-    const controls = document.getElementById("carousel-controls");
-
-    if (!track || !prevBtn || !nextBtn || !controls) return;
-
-    // Safely show the buttons only because JS is active and working
-    controls.classList.remove("hidden");
-    controls.classList.add("flex");
-
-    nextBtn.addEventListener("click", () => {
-      const slideWidth = track.clientWidth;
-      // If we are at the end, loop back to the start
-      if (track.scrollLeft + slideWidth >= track.scrollWidth - 10) {
-        track.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        track.scrollBy({ left: slideWidth, behavior: "smooth" });
-      }
-    });
-
-    prevBtn.addEventListener("click", () => {
-      const slideWidth = track.clientWidth;
-      // If we are at the start, loop to the end
-      if (track.scrollLeft <= 10) {
-        track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
-      } else {
-        track.scrollBy({ left: -slideWidth, behavior: "smooth" });
-      }
-    });
+  @font-face {
+    font-family: 'Oblata Display';
+    /* 1. Point to the .otf file extension */
+    src: url('/fonts/OblataDisplayRegular.otf') format('opentype'); /* 2. Change format to 'opentype' */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
   }
 
-  // Handle standard static load and Astro View Transitions safely
-  setupTestimonials();
-  document.addEventListener("astro:after-swap", setupTestimonials);
-</script>
+</style>

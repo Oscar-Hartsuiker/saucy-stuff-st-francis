@@ -1,0 +1,142 @@
+---
+const testimonials = [
+  {
+    quote: "YUM!",
+    author: "Sarah Jenkins",
+    role: `NPC`,
+  },
+  {
+    quote: "The dankest food in town",
+    author: "Oscar Hartsuiker",
+    role: "Lead Developer",
+  },
+  {
+    quote: "It's so F*cking good!.",
+    author: "Emma Rodriguez",
+    role: "NPC",
+  },
+];
+---
+
+<div class="relative group">
+  <!-- Carousel Track: Uses CSS snap so it works naturally without JS -->
+  <div
+    id="testimonial-track"
+    class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-6 pb-4"
+  >
+    {
+      testimonials.map((item) => (
+        <div class="w-90 shrink-0 snap-center bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm">
+          <p class="text-lg italic text-slate-700 mb-4">"{item.quote}"</p>
+          <div>
+            <h4 class="font-semibold text-slate-900">{item.author}</h4>
+            <im class="text-sm text-slate-500">{item.role}</im>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Controls: Hidden by default, shown via JS if it loads successfully -->
+  <div id="carousel-controls" class="hidden justify-between m-4">
+    <button
+      id="prev-test"
+      class="p-4 rounded-2xl border-2 border-slate-200 hover:bg-slate-100 bg-white shadow-sm text-slate-600"
+      aria-label="Previous testimonial"
+    >
+      &#10094;
+    </button>
+    <button
+      id="next-test"
+      class="p-4 rounded-2xl border-2 border-slate-200 hover:bg-slate-100 bg-white shadow-sm text-slate-600"
+      aria-label="Next testimonial"
+    >
+      &#10095;
+    </button>
+  </div>
+</div>
+
+<style>
+  <!--
+    Tailwind
+    helper
+    to
+    hide
+    scrollbars
+    globally
+    or
+    inline
+    --
+    > <style
+    is:global
+    > .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .prose {
+    text-align: center;
+    max-width: 100%;
+    line-height: 1.8;
+    color: #374151;
+  }
+
+  .dark .prose {
+    text-align: center;
+    color: #d1d5db;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+</style>
+
+<script>
+  function setupTestimonials() {
+    const track = document.getElementById("testimonial-track");
+    const prevBtn = document.getElementById("prev-test");
+    const nextBtn = document.getElementById("next-test");
+    const controls = document.getElementById("carousel-controls");
+
+    if (!track || !prevBtn || !nextBtn || !controls) return;
+
+    // Safely show the buttons only because JS is active and working
+    controls.classList.remove("hidden");
+    controls.classList.add("flex");
+
+    nextBtn.addEventListener("click", () => {
+      const slideWidth = track.clientWidth;
+      // If we are at the end, loop back to the start
+      if (track.scrollLeft + slideWidth >= track.scrollWidth - 10) {
+        track.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        track.scrollBy({ left: slideWidth, behavior: "smooth" });
+      }
+    });
+
+    prevBtn.addEventListener("click", () => {
+      const slideWidth = track.clientWidth;
+      // If we are at the start, loop to the end
+      if (track.scrollLeft <= 10) {
+        track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
+      } else {
+        track.scrollBy({ left: -slideWidth, behavior: "smooth" });
+      }
+    });
+  }
+
+  // Handle standard static load and Astro View Transitions safely
+  setupTestimonials();
+  document.addEventListener("astro:after-swap", setupTestimonials);
+</script>
