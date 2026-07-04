@@ -25,7 +25,9 @@ const { Content } = await render(latestPost); // ← renders the markdown body
       style={`background-image: url('${base}media/salad.jpg')`}
     >
       <div class="min-h-dvh content-center">
-        <div class="p-8 rounded-2xl bg-white m-4 shadow-2xl">
+        <div
+          class="p-8 rounded-2xl bg-gray-300/90 backdrop-blur-3xl m-4 shadow-2xl"
+        >
           <div class="text-center text-2xl">
             <h1
               class="text-[10vw] font-['Oblata_Display'] font-logo whitespace-nowrap text-center w-full text-gray-900 dark:text-gray-900"
@@ -40,23 +42,25 @@ const { Content } = await render(latestPost); // ← renders the markdown body
       </div>
     </div>
 
-    <div class="m-4"><Testimonials /></div>
+    <!--- <div class="m-4"><Testimonials /></div> -->
 
-    <div class="grid md:grid-cols-2 h-fit flex-col md:flex-2 flex-wrap gap-4 justify-between m-4">
-      <div class="p-4 md:p-8 text-2xl border-2 rounded-2xl">
+    <div
+      class="grid md:grid-cols-2 h-fit flex-col md:flex-2 flex-wrap gap-4 justify-between m-4"
+    >
+      <div class="p-4 md:p-8 text-2xl text-orange-300 border-2 rounded-2xl">
         <p>
           Enjoy wholesome, home-cooked meals delivered right to your home or
           office.
         </p>
       </div>
-      <div class="p-4 md:p-8 text-2xl border-2 rounded-2xl">
+      <div class="p-4 md:p-8 text-2xl text-yellow-300 border-2 rounded-2xl">
         <p>Delivery available to Cape st francis and st Francis Bay.</p>
       </div>
-      <div class="p-4 md:p-8 row-span-8 border-amber-300 bg-gray-700 border-2 rounded-2xl">
-        <!--    <h2 class="text-8xl text-center font-bold mb-2">
-            {latestPost.data.title}
-          </h2>  -->
-        <p class="text-gray-200 text-4xl text-center dark:text-gray-300 mb-4">
+      <div class="p-4 md:p-8 row-span-8 bg-gray-700 border-2 rounded-2xl">
+        <h2 class="text-2xl text-center font-bold mb-2">
+          {latestPost.data.title}
+        </h2>
+        <p class="text-gray-200 text-xl text-center dark:text-gray-300 mb-4">
           {latestPost.data.description}
         </p>
 
@@ -64,9 +68,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           <Content />
         </div>
       </div>
-      <div
-        class="p-4 md:p-8 text-2xl border-2 rounded-2xl"
-      >
+      <div class="p-4 md:p-8 text-green-300 text-2xl border-2 rounded-2xl">
         <h2 class="text-4xl text-center">
           Saucy Stuff menu is released every Sunday
         </h2><p>
@@ -74,24 +76,27 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           it sent directly to your phone.
         </p>
       </div>
-      <div class="p-4 md:p-8 text-2xl border-2 rounded-2xl">
-        <p>
-          Call or Message your order and delivery address on WhatsApp at
-          0813885967
-        </p>
-      </div>
-      <div class="p-4 md:p-8 text-2xl border-2 rounded-2xl">
+      <div class="p-4 md:p-8 text- text-sky-300 text-2xl border-2 rounded-2xl">
+        <h2 class="text-3xl">Pre-Ordering</h2>
         <p>
           Please get your orders in by 8:00 AM each day, or pre order in advance
           for orders over 3pc. Everything is made-to-order with fresh, limited
           stock.
         </p>
       </div>
-      <div class="p-4 md:p-8 text-2xl border-2 rounded-2xl">
+      <div class="p-4 md:p-8 text-purple-300 text-2xl border-2 rounded-2xl">
+        <h2 class="text-3xl">Ordering</h2>
         <p>
-          Delivery : Your meals are freshly prepared each morning and arrive
-          between 12:00 PM and 2:00 PM, ready to heat and eat whenever you’re
-          hungry!
+          Call or Message your order and delivery address on WhatsApp at
+          0813885967
+        </p>
+      </div>
+
+      <div class="p-4 md:p-8 text-pink-300 text-2xl border-2 rounded-2xl">
+        <h2 class="text-3xl">Delivery</h2>
+        <p>
+          Your meals are freshly prepared each morning and arrive between 12:00
+          PM and 2:00 PM, ready to heat and eat whenever you’re hungry!
         </p>
       </div>
       <div class="p-4 md:p-8 text-2xl border-2 rounded-2xl">
@@ -99,7 +104,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
       </div>
       <div class="rounded-2xl border-2">
         <img
-          class=" contain-content w-full bg-white rounded-2xl"
+          class="contain-content w-full rounded-2xl"
           src="/media/pinup.png"
           alt="Your Image"
         />
@@ -109,179 +114,178 @@ const { Content } = await render(latestPost); // ← renders the markdown body
       <About />
     </div>
   </main>
-  </Layout>
-  <!-- Tailwind helper to hide scrollbars globally or inline -->
-  <style is:global>
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .prose {
-      text-align: center;
-      max-width: 100%;
-      line-height: 1.8;
-      color: #374151;
-    }
-
-    .dark .prose {
-      text-align: center;
-      color: #d1d5db;
-    }
-
-    .prose h1,
-    .prose h2,
-    .prose h3,
-    .prose h4,
-    .prose h5,
-    .prose h6 {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      color: #1f2937;
-    }
-
-    .dark .prose h1,
-    .dark .prose h2,
-    .dark .prose h3,
-    .dark .prose h4,
-    .dark .prose h5,
-    .dark .prose h6 {
-      color: #f3f4f6;
-    }
-
-    .prose h1 {
-      font-size: 2rem;
-      color: #ffffff;
-    }
-
-    .prose h2 {
-      font-size: 2rem;
-      color: #ffff00;
-    }
-
-    .prose h3 {
-      font-size: 1.25rem;
-      color: #ffffff;
-    }
-
-    .prose p {
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-    }
-
-    .prose a {
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    .dark .prose a {
-      color: #60a5fa;
-    }
-
-    .prose a:hover {
-      text-decoration: underline;
-    }
-
-    .prose pre {
-      background-color: #2d2d2d;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      overflow-x: auto;
-      margin: 1.5rem 0;
-    }
-
-    .dark .prose pre {
-      background-color: #1f2937;
-    }
-
-    .prose code {
-      background-color: #f4f4f4;
-      color: #1f2937;
-      padding: 0.2rem 0.4rem;
-      border-radius: 0.25rem;
-      font-size: 0.9em;
-    }
-
-    .dark .prose code {
-      background-color: #374151;
-      color: #e5e7eb;
-    }
-
-    .prose pre code {
-      background-color: transparent;
-      padding: 0;
-      color: #f8f8f2;
-    }
-
-    .prose ul,
-    .prose ol {
-      margin-bottom: 1.5rem;
-      padding-left: 2rem;
-    }
-
-    .prose li {
-      margin-bottom: 0.5rem;
-    }
-
-    .prose blockquote {
-      border-left: 4px solid #ddd;
-      padding-left: 1rem;
-      margin: 1.5rem 0;
-      color: #666;
-      font-style: italic;
-    }
-
-    .dark .prose blockquote {
-      border-left-color: #4b5563;
-      color: #9ca3af;
-    }
-
-    .prose img {
-      max-width: 100%;
-      height: auto;
-      margin: 1.5rem 0;
-    }
-    .table {
-      align-self: center;
-    }
-    .prose table {
-      @apply mx-auto;
-      width: 90%;
-      border-collapse: collapse;
-    }
-
-    .prose th,
-    .prose td {
-      border: 1px solid #ddd;
-      padding: 0.75rem;
-      text-align: center;
-    }
-
-    .dark .prose th,
-    .dark .prose td {
-      border-color: #4b5563;
-    }
-
-    .prose th {
-      background-color: #f4f4f4;
-      font-weight: 600;
-    }
-
-    .dark .prose th {
-      background-color: #374151;
-    }
-
-    @font-face {
-      font-family: "Oblata Display";
-      /* 1. Point to the .otf file extension */
-      src: url("/fonts/OblataDisplayRegular.otf") format("opentype"); /* 2. Change format to 'opentype' */
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-  </style>
 </Layout>
+<!-- Tailwind helper to hide scrollbars globally or inline -->
+<style is:global>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .prose {
+    text-align: center;
+    max-width: 100%;
+    line-height: 1.8;
+    color: #374151;
+  }
+
+  .dark .prose {
+    text-align: center;
+    color: #d1d5db;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .dark .prose h1,
+  .dark .prose h2,
+  .dark .prose h3,
+  .dark .prose h4,
+  .dark .prose h5,
+  .dark .prose h6 {
+    color: #f3f4f6;
+  }
+
+  .prose h1 {
+    font-size: 2rem;
+    color: #ffffff;
+  }
+
+  .prose h2 {
+    font-size: 2rem;
+    color: #ffff00;
+  }
+
+  .prose h3 {
+    font-size: 1.25rem;
+    color: #ffffff;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+  }
+
+  .prose a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .dark .prose a {
+    color: #60a5fa;
+  }
+
+  .prose a:hover {
+    text-decoration: underline;
+  }
+
+  .prose pre {
+    background-color: #2d2d2d;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .dark .prose pre {
+    background-color: #1f2937;
+  }
+
+  .prose code {
+    background-color: #f4f4f4;
+    color: #1f2937;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
+  }
+
+  .dark .prose code {
+    background-color: #374151;
+    color: #e5e7eb;
+  }
+
+  .prose pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #f8f8f2;
+  }
+
+  .prose ul,
+  .prose ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid #ddd;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  .dark .prose blockquote {
+    border-left-color: #4b5563;
+    color: #9ca3af;
+  }
+
+  .prose img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+  }
+  .table {
+    align-self: center;
+  }
+  .prose table {
+    @apply mx-auto;
+    width: 90%;
+    border-collapse: collapse;
+  }
+
+  .prose th,
+  .prose td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  .dark .prose th,
+  .dark .prose td {
+    border-color: #4b5563;
+  }
+
+  .prose th {
+    background-color: #f4f4f4;
+    font-weight: 600;
+  }
+
+  .dark .prose th {
+    background-color: #374151;
+  }
+
+  @font-face {
+    font-family: "Oblata Display";
+    /* 1. Point to the .otf file extension */
+    src: url("/fonts/OblataDisplayRegular.otf") format("opentype"); /* 2. Change format to 'opentype' */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
