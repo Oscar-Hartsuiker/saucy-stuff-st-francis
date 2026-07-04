@@ -10,8 +10,6 @@ Order Simple: Call or Message your order and delivery address on WhatsApp at 081
 
 The Deadline: Please get your orders in by 8:00 AM each day, or pre order in advance for orders over 3pac. Everything is made-to-order with fresh, limited stock. 
 
-
-
 Delivery : Your meals are freshly prepared each morning and arrive between 12:00 PM and 2:00 PM, ready to heat and eat whenever you’re ready! 
 
 Delivery available to Cape st francis and st Francis Bay. 
