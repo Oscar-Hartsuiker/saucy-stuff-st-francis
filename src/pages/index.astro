@@ -5,6 +5,7 @@ import { getCollection, render } from "astro:content";
 import Contact from "../components/whatsapp.astro";
 import About from "../components/about.astro";
 import Testimonials from "../components/testimonials.astro";
+import { Icon } from "astro-icon/components";
 const base = import.meta.env.BASE_URL;
 const posts = await getCollection("blog"); // ← your collection name
 const sortedPosts = posts.sort(
@@ -21,6 +22,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
 >
   <main>
     <div
+      id="home"
       class="min-w-full flex justify-center shadow min-h-dvh sm:mb-16 bg-cover bg-center"
       style={`background-image: url('${base}media/salad.jpg')`}
     >
@@ -29,11 +31,11 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           class="p-8 rounded-2xl bg-gray-300/90 backdrop-blur-3xl m-4 shadow-2xl"
         >
           <div class="text-center text-2xl">
-            <h1
-              class="text-[10vw] font-['Oblata_Display'] font-logo whitespace-nowrap text-center w-full text-gray-900 dark:text-gray-900"
+            <h2
+              class="text-[10vw] font-['Oblata_Display'] whitespace-nowrap text-center w-full text-gray-900 dark:text-gray-900"
             >
               {SITE_CONFIG.title}
-            </h1>
+            </h2>
             <p class="text-l sm:text-2xl m-2 text-gray-500 dark:text-gray-900">
               {SITE_CONFIG.description}
             </p>
@@ -43,23 +45,61 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     </div>
 
     <!--- <div class="m-4"><Testimonials /></div> -->
-
     <div
       class="grid md:grid-cols-2 h-fit flex-col md:flex-2 flex-wrap gap-4 justify-between m-4"
     >
-      <div class="p-4 md:p-8 text-2xl text-orange-300 border-2 rounded-2xl">
-        <p>
-          Enjoy wholesome, home-cooked meals delivered right to your home or
-          office.
+      <div
+        class="p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-2xl"
+      >
+        <div class="flex">
+          <Icon
+            name="mdi:silverware-fork-knife"
+            class="h-full w-20 content-center pr-4 text-gray-300"
+          />
+        </div><div class="flex-3">
+          <h3 class="text-2xl">
+            Enjoy wholesome, home-cooked meals delivered right to your door.
+          </h3>
+        </div>
+      </div>
+      <div
+        class="p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-2xl"
+      >
+        <div class="flex">
+          <Icon
+            name="mdi:lighthouse"
+            class="h-full w-20 content-center pr-4 text-gray-300"
+          />
+        </div><div class="flex-3">
+          <h3 class="text-2xl">
+            Delivery available to Cape st francis and st Francis Bay.
+          </h3>
+        </div>
+      </div>
+      <div
+        id="menu"
+        class="p-4 md:p-8 row-span-6 bg-black/50 drop-shadow-2xl rounded-2xl"
+      >
+        <p class="text-center mb-4 text-yellow-200">
+          Last Updated
+          <time
+            datetime={latestPost.data.updatedDate.toISOString()}
+            class="text-gray-200 justify-center dark:text-gray-300 mb-4"
+          >
+            {
+              latestPost.data.updatedDate.toLocaleDateString("en-ZA", {
+                year: "numeric",
+                month: "long",
+                weekday: "long",
+                day: "numeric",
+              })
+            }
+          </time>
         </p>
-      </div>
-      <div class="p-4 md:p-8 text-2xl text-yellow-300 border-2 rounded-2xl">
-        <p>Delivery available to Cape st francis and st Francis Bay.</p>
-      </div>
-      <div class="p-4 md:p-8 row-span-8 bg-gray-700 border-2 rounded-2xl">
-        <h2 class="text-2xl text-center font-bold mb-2">
+        <h2 class="text-2xl text-center text-white font-bold mb-2">
           {latestPost.data.title}
         </h2>
+
         <p class="text-gray-200 text-xl text-center dark:text-gray-300 mb-4">
           {latestPost.data.description}
         </p>
@@ -68,52 +108,93 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           <Content />
         </div>
       </div>
-      <div class="p-4 md:p-8 text-green-300 text-2xl border-2 rounded-2xl">
-        <h2 class="text-4xl text-center">
-          Saucy Stuff menu is released every Sunday
-        </h2><p>
-          View it here on my website or join Saucy Stuff WhatsApp Group to get
-          it sent directly to your phone.
-        </p>
+      <div
+        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-2xl"
+      >
+        <div class="flex">
+          <Icon
+            name="mdi:calendar"
+            class="h-full w-20 content-center pr-4 text-gray-300"
+          />
+        </div><div class="flex-3">
+          <h2 class="mb-2 text-3xl">
+            Saucy Stuff menu is released every Sunday
+          </h2><p>
+            View it here on my website or join <a
+              class="dark:text-green-400 text-green-800 underline"
+              href="https://chat.whatsapp.com/JNp96Y7p6k07aPSMR8j4Gs?s=sh&p=a&ilr=2"
+              target="_blank">Saucy Stuff WhatsApp Group</a
+            > to get it sent directly to your phone.
+          </p>
+        </div>
       </div>
-      <div class="p-4 md:p-8 text- text-sky-300 text-2xl border-2 rounded-2xl">
-        <h2 class="text-3xl">Pre-Ordering</h2>
-        <p>
-          Please get your orders in by 8:00 AM each day, or pre order in advance
-          for orders over 3pc. Everything is made-to-order with fresh, limited
-          stock.
-        </p>
+      <div
+        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-2xl"
+      >
+        <div class="flex">
+          <Icon
+            name="mdi:cart"
+            class="h-full w-20 content-center pr-4 text-gray-300"
+          />
+        </div><div class="flex-3">
+          <h2 class="mb-2 text-3xl">Pre-Ordering</h2>
+          <p>
+            Please get your orders in by 8:00 AM each day, or pre order in
+            advance for orders over 3pc. Everything is made-to-order with fresh,
+            limited stock.
+          </p>
+        </div>
       </div>
-      <div class="p-4 md:p-8 text-purple-300 text-2xl border-2 rounded-2xl">
-        <h2 class="text-3xl">Ordering</h2>
-        <p>
-          Call or Message your order and delivery address on WhatsApp at
-          0813885967
-        </p>
+      <div
+        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-2xl"
+      >
+        <div class="flex">
+          <Icon
+            name="mdi:mobile-phone"
+            class="h-full w-20 content-center pr-4 text-gray-300"
+          />
+        </div><div class="flex-3">
+          <h2 class="mb-2 text-3xl">Ordering</h2>
+          <p>
+            Call or Message your order and delivery address on WhatsApp at
+            0813885967
+          </p>
+        </div>
       </div>
 
-      <div class="p-4 md:p-8 text-pink-300 text-2xl border-2 rounded-2xl">
-        <h2 class="text-3xl">Delivery</h2>
-        <p>
-          Your meals are freshly prepared each morning and arrive between 12:00
-          PM and 2:00 PM, ready to heat and eat whenever you’re hungry!
-        </p>
+      <div
+        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-2xl"
+      >
+        <div class="flex">
+          <Icon
+            name="mdi:car"
+            class="h-full w-20 content-center pr-4 text-gray-300"
+          />
+        </div><div class="flex-3">
+          <h2 class="text-3xl mb-2">Delivery</h2>
+          <p>
+            Your meals are freshly prepared each morning and arrive between
+            12:00 PM and 2:00 PM, ready to heat and eat whenever you’re hungry!
+          </p>
+        </div>
       </div>
-      <div class="p-4 md:p-8 text-2xl border-2 rounded-2xl">
+      <div
+        class="text-2xl bg-gray-100 dark:bg-gray-800/50 drop-shadow-2xl rounded-2xl"
+      >
         <Contact />
       </div>
-      <div class="rounded-2xl border-2">
+      <div class="rounded-2xl drop-shadow-2xl">
         <img
-          class="contain-content w-full rounded-2xl"
+          class="w-full rounded-2xl"
           src="/media/pinup.png"
           alt="Your Image"
         />
       </div>
     </div>
-    <div class="border-2 text-2xl p-4 m-4 md:p-8 rounded-2xl">
-      <About />
-    </div>
   </main>
+  <div id="about" class="text-2xl p-4 m-4 md:p-8 rounded-2xl">
+    <About />
+  </div>
 </Layout>
 <!-- Tailwind helper to hide scrollbars globally or inline -->
 <style is:global>
@@ -128,7 +209,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   .prose {
     text-align: center;
     max-width: 100%;
-    line-height: 1.8;
+    line-height: 1.75;
     color: #374151;
   }
 
@@ -160,21 +241,29 @@ const { Content } = await render(latestPost); // ← renders the markdown body
 
   .prose h1 {
     font-size: 2rem;
-    color: #ffffff;
+    color: #ffff00;
   }
 
   .prose h2 {
     font-size: 2rem;
     color: #ffff00;
   }
+  .dark .prose h1 {
+    font-size: 2rem;
+    color: #ffff00;
+  }
 
+  .dark .prose h2 {
+    font-size: 2rem;
+    color: #ffff00;
+  }
   .prose h3 {
     font-size: 1.25rem;
     color: #ffffff;
   }
 
   .prose p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: #ffffff;
   }
 
@@ -248,7 +337,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   .prose img {
     max-width: 100%;
     height: auto;
-    margin: 1.5rem 0;
+    margin: 1.5rem;
   }
   .table {
     align-self: center;

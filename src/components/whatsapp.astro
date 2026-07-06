@@ -3,7 +3,10 @@
 const whatsappNumber = "27813885967"; // your number, country code + digits, no + or spaces
 ---
 
-<form id="wa-contact-form" class="mx-auto border-2 p-6 rounded-2xl space-y-4">
+<form
+  id="wa-contact-form"
+  class="w-full mx-auto border-gray-500 border-2 p-6 rounded-2xl space-y-4"
+>
   <div class="form-control">
     <label class="label" for="wa-name">
       <span class="label-text text-center">Name</span>
@@ -13,7 +16,7 @@ const whatsappNumber = "27813885967"; // your number, country code + digits, no 
       name="name"
       type="text"
       placeholder="Your name"
-      class="input border-2 p-2 rounded-2xl w-full"
+      class="input border-2 p-2 border-gray-500 rounded-2xl w-full"
       required
     />
   </div>
@@ -25,7 +28,7 @@ const whatsappNumber = "27813885967"; // your number, country code + digits, no 
     <textarea
       id="wa-message"
       name="message"
-      class="textarea border-2 rounded-2xl p-4 w-full"
+      class="textarea border-gray-500 border-2 rounded-2xl p-4 w-full"
       rows="4"
       placeholder="What's on your mind?"
       required></textarea>
@@ -33,7 +36,7 @@ const whatsappNumber = "27813885967"; // your number, country code + digits, no 
 
   <button
     type="submit"
-    class="btn btn-primary w-full px-6 py-3 bg-green-400 hover:bg-pink-400 dark:bg-green-400 dark:hover:bg-pink-400 text-gray-900
+    class="btn btn-primary w-full px-6 py-3 border-2 border-gray-500 bg-green-400 hover:bg-pink-500 dark:bg-green-400 dark:hover:bg-pink-400 text-gray-900
             font-medium rounded-lg transition-colors duration-200"
   >
     Send via WhatsApp

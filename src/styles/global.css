@@ -3,7 +3,6 @@
 /* Class-based dark mode (matches dark class on <html>) */
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 @theme {
   --color-page-bg: var(--page-background);
 }
@@ -14,7 +13,27 @@
     --page-background: #ffffff; /* This replaces bg-white */
 
     @variant dark {
-      --page-background: #111827; /* This replaces bg-gray-900 */
+      --page-background: #000000; /* This replaces bg-gray-900 */
     }
   }
 }
+@font-face {
+  font-family: "Google Sans";
+  src: url("/fonts/Google_Sans/static/GoogleSans-Bold.ttf") format("ttf");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("/fonts/GoogleSans-Bold.ttf") format("ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Google Sans", sans-serif;
+}
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
