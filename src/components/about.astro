@@ -49,21 +49,6 @@ import { SITE_CONFIG } from "../config";
         <p>Feel free to connect with me on:</p>
         <ul class="list-disc list-inside mt-2">
           {
-            SITE_CONFIG.socialLinks.github && (
-              <li>
-                GitHub:{" "}
-                <a
-                  href={`https://github.com/${SITE_CONFIG.socialLinks.github}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  @{SITE_CONFIG.socialLinks.github}
-                </a>
-              </li>
-            )
-          }
-          {
             SITE_CONFIG.socialLinks.whatsapp && (
               <li>
                 WhatsApp:{""}
@@ -71,7 +56,7 @@ import { SITE_CONFIG } from "../config";
                   href={`https://wa.me/${SITE_CONFIG.socialLinks.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-blue-600 dark:text-blue-400 hover:underline"
+                  class="text-blue-600 dark:text-blue-400 hover:underline break-all"
                 >
                   {SITE_CONFIG.socialLinks.whatsapp}
                 </a>
@@ -84,7 +69,7 @@ import { SITE_CONFIG } from "../config";
                 Email:{" "}
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  class="text-blue-600 dark:text-blue-400 hover:underline"
+                  class="text-blue-600 dark:text-blue-400 hover:underline break-all"
                 >
                   {SITE_CONFIG.email}
                 </a>

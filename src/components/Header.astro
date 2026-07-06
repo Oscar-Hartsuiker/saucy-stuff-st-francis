@@ -12,15 +12,15 @@ const navLinks = NAV_ITEMS.filter((item) => item.href !== "/");
 <header
   class="bg-white dark:bg-black text-black shadow-2xl fixed border-gray-400 w-full z-50 py-2 transition-colors duration-200"
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl min-w-0 mx-auto px-4 sm:px-6 lg:px-8">
     <nav class="flex items-center justify-between" aria-label="Main navigation">
-      <a href={base} class="shrink-0">
+      <a href={base} class="shrink-0 min-w-0">
         <picture>
-          <source srcset={`${base}logo.png`} type="image/png" />
+          <source srcset={`${base}media/pinup.png`} type="image/png" />
           <img
             src={`${base}logo.png`}
-            alt="Saucy Stuff"
-            class="dark:text-gray-300 w-auto"
+            alt=""
+            class="dark:text-gray-300 h-8 sm:h-10 w-auto sm:max-w-none"
           />
         </picture>
       </a>
@@ -43,7 +43,7 @@ const navLinks = NAV_ITEMS.filter((item) => item.href !== "/");
       </div>
 
       <!-- Mobile menu button and dark mode toggle -->
-      <div class="md:hidden flex items-center space-x-2">
+      <div class="md:hidden flex items-center space-x-0">
         <DarkModeToggle />
         <button
           type="button"
