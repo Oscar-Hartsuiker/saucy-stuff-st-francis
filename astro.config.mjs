@@ -7,7 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://saucy-stuff-st-francis.pages.dev",
+  site: "https://24648860.saucy-stuff-st-francis.pages.dev",
   integrations: [mdx(), sitemap(), icon()],
 
   vite: {

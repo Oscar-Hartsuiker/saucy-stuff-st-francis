@@ -16,6 +16,7 @@ export const SITE_CONFIG = {
   // Remove or leave empty any platforms you don't use
   socialLinks: {
     github: "",
+    whatsapp: "27813885967",
     linkedin: "",
     youtube: "", // Leave empty if not used
   },
