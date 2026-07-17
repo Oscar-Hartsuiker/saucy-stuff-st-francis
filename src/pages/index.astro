@@ -23,7 +23,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   <main>
     <div
       id="home"
-      class="min-w-full flex justify-center shadow min-h-dvh sm:mb-16 bg-cover bg-center"
+      class="min-w-full flex justify-center shadow min-h-lvh sm:mb-16 bg-cover bg-center"
       style={`background-image: url('${base}media/salad.jpg')`}
     >
       <div class="min-h-dvh content-center">
@@ -208,6 +208,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
 
   .prose {
     text-align: center;
+    font-size: 1.5rem;
     max-width: 100%;
     line-height: 1.75;
     color: #374151;
