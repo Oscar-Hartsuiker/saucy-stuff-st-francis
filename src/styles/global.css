@@ -21,27 +21,36 @@
 @font-face {
   font-family: "Google Sans";
   src: url("/fonts/GoogleSans-Bold.ttf") format("ttf");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Roboto-Extra-Light";
-  src: url("/fonts/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
-
-
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito-VariableFont_wght.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 @theme {
   /* This maps 'font-sans' utilities directly to your custom font variable */
-  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
-  
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+
   /* You can also add custom sizes with line-heights bundled together */
-  --text-base: 1rem;
-  --text-base--line-height: 1.75;
+  --text-base: 1.25rem;
+  --text-base--line-height: 2rem;
 }
-
-
-

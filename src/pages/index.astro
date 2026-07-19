@@ -57,13 +57,13 @@ const { Content } = await render(latestPost); // ← renders the markdown body
             class="h-full w-20 content-center pr-4 text-gray-300"
           />
         </div><div class="flex-3">
-          <h3 class="text-2xl">
+          <h3 class="text-xl">
             Enjoy wholesome, home-cooked meals delivered right to your door.
           </h3>
         </div>
       </div>
       <div
-        class="p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-2xl"
+        class="p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-xl"
       >
         <div class="flex">
           <Icon
@@ -71,20 +71,20 @@ const { Content } = await render(latestPost); // ← renders the markdown body
             class="h-full w-20 content-center pr-4 text-gray-300"
           />
         </div><div class="flex-3">
-          <h3 class="text-2xl">
+          <h3 class="text-xl">
             Delivery available to Cape st francis and st Francis Bay.
           </h3>
         </div>
       </div>
       <div
         id="menu"
-        class="p-4 md:p-8 row-span-6 bg-black/50 drop-shadow-2xl rounded-2xl"
+        class="p-4 md:p-8 row-span-6 bg-black/10 drop-shadow-2xl rounded-2xl"
       >
-        <p class="text-center mb-4 text-yellow-200">
+        <p class="text-center mb-4 text-yellow-800 dark:text-yellow-200">
           Last Updated
           <time
             datetime={latestPost.data.updatedDate.toISOString()}
-            class="text-gray-200 justify-center dark:text-gray-300 mb-4"
+            class="text-gray-700 justify-center dark:text-gray-300 mb-4"
           >
             {
               latestPost.data.updatedDate.toLocaleDateString("en-ZA", {
@@ -96,11 +96,13 @@ const { Content } = await render(latestPost); // ← renders the markdown body
             }
           </time>
         </p>
-        <h2 class="text-2xl text-center text-white font-bold mb-2">
+        <h2 class="text-2xl text-center text-black font-bold mb-2">
           {latestPost.data.title}
         </h2>
 
-        <p class="text-gray-200 text-xl text-center list-inside dark:text-gray-300 mb-4">
+        <p
+          class="text-gray-600 text-xl text-center list-inside dark:text-gray-300 mb-4"
+        >
           {latestPost.data.description}
         </p>
 
@@ -146,7 +148,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         </div>
       </div>
       <div
-        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl  rounded-2xl"
+        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl rounded-2xl"
       >
         <div class="flex">
           <Icon
@@ -163,7 +165,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
       </div>
 
       <div
-        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl  rounded-2xl"
+        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl rounded-2xl"
       >
         <div class="flex">
           <Icon
@@ -211,7 +213,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     font-size: 1.25rem;
     max-width: 100%;
     line-height: 1.75;
-    color: #374151;
+    color: #000000;
   }
 
   .dark .prose {
@@ -247,7 +249,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
 
   .prose h2 {
     font-size: 2rem;
-    color: #ffff00;
+    color: #a59550;
   }
   .dark .prose h1 {
     font-size: 2rem;
@@ -263,9 +265,13 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     color: #ffffff;
   }
 
-  .prose p {
+  .dark .prose p {
     margin-bottom: 1rem;
     color: #ffffff;
+  }
+  .prose p {
+    margin-bottom: 1rem;
+    color: #1f1f1f;
   }
 
   .prose a {
@@ -312,18 +318,17 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     color: #f8f8f2;
   }
 
-.prose ul,
-.prose ol {
-  margin-bottom: 1.5rem;
-  padding-left: 0; /* Remove left padding so it sits perfectly center */
-  text-align: center;
-  list-style-position: inside; /* Forces bullets to center with the text */
-}
+  .prose ul,
+  .prose ol {
+    margin-bottom: 1.5rem;
+    padding-left: 0; /* Remove left padding so it sits perfectly center */
+    text-align: center;
+    list-style-position: inside; /* Forces bullets to center with the text */
+  }
 
-.prose li {
-  margin-bottom: 0.5rem;
-}
-
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
 
   .prose blockquote {
     border-left: 4px solid #ddd;

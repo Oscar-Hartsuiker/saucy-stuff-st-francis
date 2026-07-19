@@ -5,30 +5,30 @@ const whatsappNumber = "27813885967"; // your number, country code + digits, no 
 
 <form
   id="wa-contact-form"
-  class="w-full mx-auto border-gray-500 border-2 p-6 rounded-2xl space-y-4"
+  class="w-full mx-auto border-gray-500 border p-6 rounded-2xl space-y-4"
 >
   <div class="form-control">
     <label class="label" for="wa-name">
-      <span class="label-text text-center">Name</span>
+      <span class="label-text text-center m-2">Name</span>
     </label>
     <input
       id="wa-name"
       name="name"
       type="text"
       placeholder="Your name"
-      class="input border-2 p-2 border-gray-500 rounded-2xl w-full"
+      class="input border p-2 border-gray-500 rounded-2xl w-full"
       required
     />
   </div>
 
   <div class="form-control">
     <label class="label" for="wa-message">
-      <span class="label-text">Message</span>
+      <span class="label-text text-center m-2">Message</span>
     </label>
     <textarea
       id="wa-message"
       name="message"
-      class="textarea border-gray-500 border-2 rounded-2xl p-4 w-full"
+      class="textarea border-gray-500 border rounded-2xl p-2 w-full"
       rows="4"
       placeholder="What can we do for you?"
       required></textarea>
@@ -36,7 +36,7 @@ const whatsappNumber = "27813885967"; // your number, country code + digits, no 
 
   <button
     type="submit"
-    class="btn btn-primary w-full px-6 py-3 border-2 border-gray-500 bg-green-400 hover:bg-pink-500 dark:bg-green-400 dark:hover:bg-pink-400 text-gray-900
+    class="btn btn-primary w-full px-6 py-3 border border-gray-500 bg-green-400 hover:bg-green-300 dark:bg-green-400 dark:hover:bg-green-300 text-gray-900
             font-medium rounded-lg transition-colors duration-200"
   >
     Send via WhatsApp
