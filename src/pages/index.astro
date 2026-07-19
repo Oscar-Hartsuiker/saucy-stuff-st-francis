@@ -100,11 +100,11 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           {latestPost.data.title}
         </h2>
 
-        <p class="text-gray-200 text-xl text-center dark:text-gray-300 mb-4">
+        <p class="text-gray-200 text-xl text-center list-inside dark:text-gray-300 mb-4">
           {latestPost.data.description}
         </p>
 
-        <div class="prose text-2xl dark:prose-invert">
+        <div class="prose text-2xl text-center items-center dark:prose-invert">
           <Content />
         </div>
       </div>
@@ -179,7 +179,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         </div>
       </div>
       <div
-        class="text-2xl bg-gray-100 dark:bg-gray-800/50 drop-shadow-2xl rounded-2xl"
+        class="text-xl bg-gray-100 dark:bg-gray-800/50 drop-shadow-2xl rounded-2xl"
       >
         <Contact />
       </div>
@@ -208,7 +208,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
 
   .prose {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     max-width: 100%;
     line-height: 1.75;
     color: #374151;
@@ -312,15 +312,18 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     color: #f8f8f2;
   }
 
-  .prose ul,
-  .prose ol {
-    margin-bottom: 1.5rem;
-    padding-left: 2rem;
-  }
+.prose ul,
+.prose ol {
+  margin-bottom: 1.5rem;
+  padding-left: 0; /* Remove left padding so it sits perfectly center */
+  text-align: center;
+  list-style-position: inside; /* Forces bullets to center with the text */
+}
 
-  .prose li {
-    margin-bottom: 0.5rem;
-  }
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
 
   .prose blockquote {
     border-left: 4px solid #ddd;
