@@ -67,18 +67,7 @@ const {
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
 
-    <!-- Dark mode initialization script - prevents flash -->
-    <script is:inline>
-      // Initialize theme before page renders to prevent flash
-      (function() {
-        const savedTheme = localStorage.getItem('theme');
 
-        // Default to dark mode unless explicitly set to light
-        if (savedTheme !== 'light') {
-          document.documentElement.classList.add('dark');
-        }
-      })();
-    </script>
 
     <!-- Google Analytics -->
     {SITE_CONFIG.googleAnalyticsId && SITE_CONFIG.features.analytics && (
@@ -92,10 +81,23 @@ const {
         </script>
       </>
     )}
+<!-- Put this in src/layouts/Layout.astro inside <head> -->
+<script is:inline>
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+    // Apply dark class if saved preference is dark, OR if no preference exists and system is dark
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  })();
+</script>
     <title>{title}</title>
   </head>
-  <body class="flex flex-col min-h-dvh font-sans bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+  <body class="flex flex-col min-h-dvh font-sans bg-canvas text-inc transition-colors duration-200">
     <Header />
     <main class="grow w-full relative" role="main" aria-label="Main content">
       <slot />

@@ -10,7 +10,7 @@
 /* 3. Assign your light and dark background values here */
 @layer theme {
   :root {
-    --page-background: #ffffff; /* This replaces bg-white */
+    --page-background: #00ffff; /* This replaces bg-white */
 
     @variant dark {
       --page-background: #000000; /* This replaces bg-gray-900 */
@@ -37,11 +37,31 @@
 @theme {
   /* This maps 'font-sans' utilities directly to your custom font variable */
   --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
-  
+    /* Forces dark: utilities to trigger automatically based on OS preferences */
+  --variant-dark: (prefers-color-scheme: dark);
   /* You can also add custom sizes with line-heights bundled together */
   --text-base: 1rem;
   --text-base--line-height: 1.75;
 }
 
+@theme {
+  /* 1. Set up your System Dark Mode strategy */
+  --variant-dark: (prefers-color-scheme: dark);
 
+  /* 2. Define the DEFAULT colors (Light Mode) */
+  --color-primary: #1e3a8a;       /* Deep corporate blue */
+  --color-secondary: #0ea5e9;     /* Vibrant sky blue accent */
+  --color-canvas: #ffffff;        /* Crisp light background */
+  --color-ink: #0f172a;           /* Dark slate text */
+}
+
+/* 3. Define the OVERRIDES (Dark Mode) */
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-primary: #60a5fa;     /* Lighter blue so it pops on dark */
+    --color-secondary: #38bdf8;   /* Softer sky blue accent */
+    --color-canvas: #0f172a;      /* Dark slate background */
+    --color-ink: #f8fafc;         /* Crisp light grey text */
+  }
+}
 

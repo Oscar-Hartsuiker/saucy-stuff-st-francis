@@ -63,7 +63,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         </div>
       </div>
       <div
-        class="p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-2xl"
+        class="p-4 md:p-8 bg-gray-100 dark:bg-black/50 flex drop-shadow-2xl text-xl rounded-2xl"
       >
         <div class="flex">
           <Icon
@@ -104,7 +104,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           {latestPost.data.description}
         </p>
 
-        <div class="prose text-2xl text-center items-center dark:prose-invert">
+        <div class="prose text-center items-center dark:prose-invert">
           <Content />
         </div>
       </div>
