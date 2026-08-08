@@ -27,7 +27,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
       style={`background-image: url('${base}media/salad.jpg')`}
     >
       <div class="min-h-dvh content-center">
-        <div class="p-8 rounded-2xl bg-bg/90 backdrop-blur-3xl m-4 shadow-2xl">
+        <div class="p-8 rounded-2xl bg-surface backdrop-blur-3xl m-4 shadow">
           <div class="text-center text-2xl">
             <h
               class="text-[10vw] font-['Roboto'] whitespace-nowrap text-center w-full text-text"
@@ -45,9 +45,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     <div
       class="grid md:grid-cols-2 h-fit flex-col md:flex-2 flex-wrap gap-4 justify-between md:p-12 p-4"
     >
-      <div
-        class="p-4 md:p-8 bg-surface flex drop-shadow-2xl text-xl rounded-2xl"
-      >
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow text-xl rounded-2xl">
         <div class="flex">
           <Icon
             name="mdi:silverware-fork-knife"
@@ -59,9 +57,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           </h3>
         </div>
       </div>
-      <div
-        class="p-4 md:p-8 bg-surface flex drop-shadow-2xl text-xl rounded-xl"
-      >
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow text-xl rounded-xl">
         <div class="flex">
           <Icon
             name="mdi:lighthouse"
@@ -75,7 +71,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
       </div>
       <div
         id="menu"
-        class="p-4 md:p-8 row-span-6 bg-panel drop-shadow-2xl rounded-2xl"
+        class="p-4 md:p-8 row-span-6 bg-panel drop-shadow rounded-2xl"
       >
         <p class="text-center mb-4 text-accent-1">
           Last Updated
@@ -105,7 +101,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           <Content />
         </div>
       </div>
-      <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow rounded-2xl">
         <div class="flex">
           <Icon
             name="mdi:calendar"
@@ -123,7 +119,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           </p>
         </div>
       </div>
-      <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow rounded-2xl">
         <div class="flex">
           <Icon
             name="mdi:cart"
@@ -138,7 +134,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           </p>
         </div>
       </div>
-      <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow rounded-2xl">
         <div class="flex">
           <Icon
             name="mdi:mobile-phone"
@@ -153,7 +149,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         </div>
       </div>
 
-      <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow rounded-2xl">
         <div class="flex">
           <Icon
             name="mdi:car"
@@ -167,10 +163,10 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           </p>
         </div>
       </div>
-      <div class="text-xl bg-surface drop-shadow-2xl rounded-2xl">
+      <div class="text-xl bg-surface drop-shadow rounded-2xl">
         <Contact />
       </div>
-      <div class="rounded-2xl drop-shadow-2xl">
+      <div class="rounded-2xl drop-shadow">
         <img
           class="w-full rounded-2xl"
           src="/media/pinup.png"
