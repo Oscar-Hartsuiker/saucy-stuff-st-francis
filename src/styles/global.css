@@ -46,6 +46,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 @theme {
   /* This maps 'font-sans' utilities directly to your custom font variable */
   --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
@@ -53,4 +60,55 @@
   /* You can also add custom sizes with line-heights bundled together */
   --text-base: 1.25rem;
   --text-base--line-height: 2rem;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+
+  --color-accent-1: var(--accent-1); /* primary highlight (was golden) */
+  --color-accent-1-strong: var(--accent-1-strong);
+  --color-accent-2: var(--accent-2); /* secondary (was sage) */
+  --color-accent-3: var(--accent-3); /* tertiary / CTA (was tomato) */
+
+  --color-link: var(--link);
+  --color-border: var(--border);
+}
+
+/* ---- LIGHT MODE (default) ---- */
+:root {
+  --bg: #fdf8f0;
+  --surface: #f5ead8;
+  --panel: #2a1f17;
+
+  --text: #3d2b1f;
+  --text-muted: #6b5544;
+
+  --accent-1: #e8a33d;
+  --accent-1-strong: #f4c97a;
+  --accent-2: #7a8b5c;
+  --accent-3: #d65d3a;
+
+  --link: #7a8b5c;
+  --border: #ebdcc2;
+}
+
+/* ---- DARK MODE ---- */
+.dark {
+  --bg: #1a140f;
+  --surface: #2a1f1769;
+  --panel: #000000;
+
+  --text: #fdf8f0;
+  --text-muted: #ebdcc2;
+
+  --accent-1: #f4c97a;
+  --accent-1-strong: #e8a33d;
+  --accent-2: #9bae7a;
+  --accent-3: #e8825b;
+
+  --link: #f4c97a;
+  --border: #3d2b1f;
 }

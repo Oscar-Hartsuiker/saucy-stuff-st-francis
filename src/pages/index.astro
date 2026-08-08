@@ -27,16 +27,14 @@ const { Content } = await render(latestPost); // ← renders the markdown body
       style={`background-image: url('${base}media/salad.jpg')`}
     >
       <div class="min-h-dvh content-center">
-        <div
-          class="p-8 rounded-2xl bg-gray-300/90 backdrop-blur-3xl m-4 shadow-2xl"
-        >
+        <div class="p-8 rounded-2xl bg-bg/90 backdrop-blur-3xl m-4 shadow-2xl">
           <div class="text-center text-2xl">
-            <h2
-              class="text-[10vw] font-['Oblata_Display'] whitespace-nowrap text-center w-full text-gray-900 dark:text-gray-900"
+            <h
+              class="text-[10vw] font-['Roboto'] whitespace-nowrap text-center w-full text-text"
             >
               {SITE_CONFIG.title}
-            </h2>
-            <p class="text-l sm:text-2xl m-2 text-gray-500 dark:text-gray-900">
+            </h>
+            <p class="text-l sm:text-2xl m-2 text-text-muted">
               {SITE_CONFIG.description}
             </p>
           </div>
@@ -44,47 +42,46 @@ const { Content } = await render(latestPost); // ← renders the markdown body
       </div>
     </div>
 
-    <!--- <div class="m-4"><Testimonials /></div> -->
     <div
-      class="grid md:grid-cols-2 h-fit flex-col md:flex-2 flex-wrap gap-4 justify-between m-4"
+      class="grid md:grid-cols-2 h-fit flex-col md:flex-2 flex-wrap gap-4 justify-between p-8 m-4"
     >
       <div
-        class="p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-2xl"
+        class="p-4 md:p-8 bg-surface flex drop-shadow-2xl text-xl rounded-2xl"
       >
         <div class="flex">
           <Icon
             name="mdi:silverware-fork-knife"
-            class="h-full w-20 content-center pr-4 text-gray-300"
+            class="h-full w-20 content-center pr-4 text-accent-1"
           />
         </div><div class="flex-3">
-          <h3 class="text-xl">
+          <h3 class="text-xl text-text">
             Enjoy wholesome, home-cooked meals delivered right to your door.
           </h3>
         </div>
       </div>
       <div
-        class="p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl text-xl rounded-xl"
+        class="p-4 md:p-8 bg-surface flex drop-shadow-2xl text-xl rounded-xl"
       >
         <div class="flex">
           <Icon
             name="mdi:lighthouse"
-            class="h-full w-20 content-center pr-4 text-gray-300"
+            class="h-full w-20 content-center pr-4 text-accent-1"
           />
         </div><div class="flex-3">
-          <h3 class="text-xl">
+          <h3 class="text-xl text-text">
             Delivery available to Cape st francis and st Francis Bay.
           </h3>
         </div>
       </div>
       <div
         id="menu"
-        class="p-4 md:p-8 row-span-6 bg-black/10 drop-shadow-2xl rounded-2xl"
+        class="p-4 md:p-8 row-span-6 bg-panel drop-shadow-2xl rounded-2xl"
       >
-        <p class="text-center mb-4 text-yellow-800 dark:text-yellow-200">
+        <p class="text-center mb-4 text-accent-1">
           Last Updated
           <time
             datetime={latestPost.data.updatedDate.toISOString()}
-            class="text-gray-700 justify-center dark:text-gray-300 mb-4"
+            class="text-text-muted justify-center mb-4"
           >
             {
               latestPost.data.updatedDate.toLocaleDateString("en-ZA", {
@@ -96,93 +93,81 @@ const { Content } = await render(latestPost); // ← renders the markdown body
             }
           </time>
         </p>
-        <h2 class="text-2xl text-center text-black font-bold mb-2">
+        <h2 class="text-2xl text-center text-accent-1 font-bold mb-2">
           {latestPost.data.title}
         </h2>
 
-        <p
-          class="text-gray-600 text-xl text-center list-inside dark:text-gray-300 mb-4"
-        >
+        <p class="text-xl text-text-muted text-center list-inside mb-4">
           {latestPost.data.description}
         </p>
 
-        <div class="prose text-2xl text-center items-center dark:prose-invert">
+        <div class="prose text-2xl text-center items-center">
           <Content />
         </div>
       </div>
-      <div
-        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl rounded-2xl"
-      >
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
         <div class="flex">
           <Icon
             name="mdi:calendar"
-            class="h-full w-20 content-center pr-4 text-gray-300"
+            class="h-full w-20 content-center pr-4 text-accent-1"
           />
         </div><div class="flex-3">
-          <h2 class="mb-2 text-3xl">
+          <h2 class="mb-2 text-3xl text-text">
             Saucy Stuff menu is released every Sunday
-          </h2><p>
+          </h2><p class="text-text">
             View it here on my website or join <a
-              class="dark:text-green-400 text-green-800 underline"
+              class="text-link underline"
               href="https://chat.whatsapp.com/JNp96Y7p6k07aPSMR8j4Gs?s=sh&p=a&ilr=2"
               target="_blank">Saucy Stuff WhatsApp Group</a
             > to get it sent directly to your phone.
           </p>
         </div>
       </div>
-      <div
-        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl rounded-2xl"
-      >
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
         <div class="flex">
           <Icon
             name="mdi:cart"
-            class="h-full w-20 content-center pr-4 text-gray-300"
+            class="h-full w-20 content-center pr-4 text-accent-1"
           />
         </div><div class="flex-3">
-          <h2 class="mb-2 text-3xl">Pre-Ordering</h2>
-          <p>
+          <h2 class="mb-2 text-3xl text-text">Pre-Ordering</h2>
+          <p class="text-text">
             Please get your orders in by 8:00 AM each day, or pre order in
             advance for orders over 3pc. Everything is made-to-order with fresh,
             limited stock.
           </p>
         </div>
       </div>
-      <div
-        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl rounded-2xl"
-      >
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
         <div class="flex">
           <Icon
             name="mdi:mobile-phone"
-            class="h-full w-20 content-center pr-4 text-gray-300"
+            class="h-full w-20 content-center pr-4 text-accent-1"
           />
         </div><div class="flex-3">
-          <h2 class="mb-2 text-3xl">Ordering</h2>
-          <p>
+          <h2 class="mb-2 text-3xl text-text">Ordering</h2>
+          <p class="text-text">
             Call or Message your order and delivery address on WhatsApp at
             0813885967
           </p>
         </div>
       </div>
 
-      <div
-        class="mb-2 p-4 md:p-8 bg-gray-100 dark:bg-gray-800/50 flex drop-shadow-2xl rounded-2xl"
-      >
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
         <div class="flex">
           <Icon
             name="mdi:car"
-            class="h-full w-20 content-center pr-4 text-gray-300"
+            class="h-full w-20 content-center pr-4 text-accent-1"
           />
         </div><div class="flex-3">
-          <h2 class="text-3xl mb-2">Delivery</h2>
-          <p>
+          <h2 class="text-3xl mb-2 text-text">Delivery</h2>
+          <p class="text-text">
             Your meals are freshly prepared each morning and arrive between
             12:00 PM and 2:00 PM, ready to heat and eat whenever you’re hungry!
           </p>
         </div>
       </div>
-      <div
-        class="text-xl bg-gray-100 dark:bg-gray-800/50 drop-shadow-2xl rounded-2xl"
-      >
+      <div class="text-xl bg-surface drop-shadow-2xl rounded-2xl">
         <Contact />
       </div>
       <div class="rounded-2xl drop-shadow-2xl">
@@ -193,10 +178,10 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         />
       </div>
     </div>
+    <div id="about" class="p-4 m-4 md:p-8 rounded-2xl">
+      <About />
+    </div>
   </main>
-  <div id="about" class="p-4 m-4 md:p-8 rounded-2xl">
-    <About />
-  </div>
 </Layout>
 <!-- Tailwind helper to hide scrollbars globally or inline -->
 <style is:global>
@@ -213,12 +198,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     font-size: 1.25rem;
     max-width: 100%;
     line-height: 1.75;
-    color: #000000;
-  }
-
-  .dark .prose {
-    text-align: center;
-    color: #d1d5db;
+    color: var(--text-muted);
   }
 
   .prose h1,
@@ -230,57 +210,30 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: 600;
-    color: #1f2937;
-  }
-
-  .dark .prose h1,
-  .dark .prose h2,
-  .dark .prose h3,
-  .dark .prose h4,
-  .dark .prose h5,
-  .dark .prose h6 {
-    color: #f3f4f6;
+    color: var(--accent-1);
   }
 
   .prose h1 {
     font-size: 2rem;
-    color: #ffff00;
   }
 
   .prose h2 {
     font-size: 2rem;
-    color: #a59550;
-  }
-  .dark .prose h1 {
-    font-size: 2rem;
-    color: #ffff00;
   }
 
-  .dark .prose h2 {
-    font-size: 2rem;
-    color: #ffff00;
-  }
   .prose h3 {
     font-size: 1.25rem;
-    color: #ffffff;
+    color: var(--text-muted);
   }
 
-  .dark .prose p {
-    margin-bottom: 1rem;
-    color: #ffffff;
-  }
   .prose p {
     margin-bottom: 1rem;
-    color: #1f1f1f;
+    color: var(--text-muted);
   }
 
   .prose a {
-    color: #007bff;
+    color: var(--accent-1-strong);
     text-decoration: none;
-  }
-
-  .dark .prose a {
-    color: #60a5fa;
   }
 
   .prose a:hover {
@@ -288,34 +241,25 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   }
 
   .prose pre {
-    background-color: #2d2d2d;
+    background-color: var(--bg);
     padding: 1rem;
     border-radius: 0.5rem;
     overflow-x: auto;
     margin: 1.5rem 0;
   }
 
-  .dark .prose pre {
-    background-color: #1f2937;
-  }
-
   .prose code {
-    background-color: #f4f4f4;
-    color: #1f2937;
+    background-color: var(--border);
+    color: var(--text);
     padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
     font-size: 0.9em;
   }
 
-  .dark .prose code {
-    background-color: #374151;
-    color: #e5e7eb;
-  }
-
   .prose pre code {
     background-color: transparent;
     padding: 0;
-    color: #f8f8f2;
+    color: var(--text-muted);
   }
 
   .prose ul,
@@ -331,16 +275,11 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   }
 
   .prose blockquote {
-    border-left: 4px solid #ddd;
+    border-left: 4px solid var(--accent-1);
     padding-left: 1rem;
     margin: 1.5rem 0;
-    color: #666;
+    color: var(--text-muted);
     font-style: italic;
-  }
-
-  .dark .prose blockquote {
-    border-left-color: #4b5563;
-    color: #9ca3af;
   }
 
   .prose img {
@@ -359,23 +298,15 @@ const { Content } = await render(latestPost); // ← renders the markdown body
 
   .prose th,
   .prose td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border);
     padding: 0.75rem;
     text-align: center;
   }
 
-  .dark .prose th,
-  .dark .prose td {
-    border-color: #4b5563;
-  }
-
   .prose th {
-    background-color: #f4f4f4;
+    background-color: var(--bg);
+    color: var(--accent-1);
     font-weight: 600;
-  }
-
-  .dark .prose th {
-    background-color: #374151;
   }
 
   @font-face {

@@ -66,19 +66,29 @@ const {
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
+    
 
     <!-- Dark mode initialization script - prevents flash -->
-    <script is:inline>
-      // Initialize theme before page renders to prevent flash
-      (function() {
-        const savedTheme = localStorage.getItem('theme');
-
-        // Default to dark mode unless explicitly set to light
-        if (savedTheme !== 'light') {
-          document.documentElement.classList.add('dark');
-        }
-      })();
+<script is:inline>
+  (function() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.toggle('dark', prefersDark);
+  })();
     </script>
+
+<script>
+  function applyOSTheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.toggle('dark', prefersDark);
+  }
+
+  // Follow OS theme changes live (e.g. laptop auto-switches at sunset)
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyOSTheme);
+
+  // Re-apply on Astro page transitions, since classList on <html> can be
+  // affected by view transitions swapping content
+  document.addEventListener('astro:after-swap', applyOSTheme);
+</script>
 
     <!-- Google Analytics -->
     {SITE_CONFIG.googleAnalyticsId && SITE_CONFIG.features.analytics && (
@@ -95,7 +105,7 @@ const {
 
     <title>{title}</title>
   </head>
-  <body class="flex flex-col min-h-dvh font-sans bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+  <body class="flex flex-col min-h-dvh font-sans bg-bg text-gray-900 dark:text-gray-100 transition-colors duration-200">
     <Header />
     <main class="grow w-full relative" role="main" aria-label="Main content">
       <slot />
