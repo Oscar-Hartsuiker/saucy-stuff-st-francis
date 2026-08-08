@@ -148,40 +148,41 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           <h2 class="mb-2 text-3xl text-text">Ordering</h2>
           <p class="text-text">
             Call or Message your order and delivery address on WhatsApp at
+            <a href="https://wa.me/27813885967"> 0813885967 </a>
           </p>
-          <a class="text-link underline" href="https://wa.me/27813885967">
-            813885967
-          </a>
         </div>
       </div>
-    </div>
 
-    <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
-      <div class="flex">
-        <Icon
-          name="mdi:car"
-          class="h-full w-20 content-center pr-4 text-accent-1"
+      <div class="p-4 md:p-8 bg-surface flex drop-shadow-2xl rounded-2xl">
+        <div class="flex">
+          <Icon
+            name="mdi:car"
+            class="h-full w-20 content-center pr-4 text-accent-1"
+          />
+        </div><div class="flex-3">
+          <h2 class="text-3xl mb-2 text-text">Delivery</h2>
+          <p class="text-text">
+            Your meals are freshly prepared each morning and arrive between
+            12:00 PM and 2:00 PM, ready to heat and eat whenever you’re hungry!
+          </p>
+        </div>
+      </div>
+      <div class="text-xl bg-surface drop-shadow-2xl rounded-2xl">
+        <Contact />
+      </div>
+      <div class="rounded-2xl drop-shadow-2xl">
+        <img
+          class="w-full rounded-2xl"
+          src="/media/pinup.png"
+          alt="Your Image"
         />
-      </div><div class="flex-3">
-        <h2 class="text-3xl mb-2 text-text">Delivery</h2>
-        <p class="text-text">
-          Your meals are freshly prepared each morning and arrive between 12:00
-          PM and 2:00 PM, ready to heat and eat whenever you’re hungry!
-        </p>
       </div>
     </div>
-    <div class="text-xl bg-surface drop-shadow-2xl rounded-2xl">
-      <Contact />
-    </div>
-    <div class="rounded-2xl drop-shadow-2xl">
-      <img class="w-full rounded-2xl" src="/media/pinup.png" alt="Your Image" />
+    <div id="about" class="m-4 rounded-2xl">
+      <About />
     </div>
   </main>
-  <div id="about" class="m-4 rounded-2xl">
-    <About />
-  </div>
 </Layout>
-
 <!-- Tailwind helper to hide scrollbars globally or inline -->
 <style is:global>
   .no-scrollbar::-webkit-scrollbar {
