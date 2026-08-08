@@ -43,7 +43,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
     </div>
 
     <div
-      class="grid md:grid-cols-2 h-fit flex-col md:flex-2 flex-wrap gap-4 justify-between p-8 m-4"
+      class="grid md:grid-cols-2 h-fit flex-col md:flex-2 flex-wrap gap-4 justify-between md:p-12 p-4"
     >
       <div
         class="p-4 md:p-8 bg-surface flex drop-shadow-2xl text-xl rounded-2xl"
@@ -178,7 +178,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         />
       </div>
     </div>
-    <div id="about" class="p-4 m-4 md:p-8 rounded-2xl">
+    <div id="about" class="m-4 rounded-2xl">
       <About />
     </div>
   </main>
