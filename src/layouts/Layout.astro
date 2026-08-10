@@ -57,7 +57,8 @@ const {
     <link rel="manifest" href={`${import.meta.env.BASE_URL}site.webmanifest`} />
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#ffffff" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FDF8F0" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1A140F" />
     <meta name="msapplication-TileColor" content="#ffffff" />
 
     <!-- Font Awesome -->
@@ -105,7 +106,7 @@ const {
 
     <title>{title}</title>
   </head>
-  <body class="flex flex-col min-h-dvh font-sans bg-bg text-gray-900 dark:text-gray-100 transition-colors duration-200">
+  <body class="flex flex-col min-h-dvh font-sans bg-bg text-text transition-colors duration-200">
     <Header />
     <main class="grow w-full relative" role="main" aria-label="Main content">
       <slot />
