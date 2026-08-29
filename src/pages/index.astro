@@ -24,7 +24,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   <main>
     <div
       id="home"
-      class="min-w-full flex justify-center shadow min-h-lvh sm:mb-8 bg-cover bg-center"
+      class="min-w-full flex justify-center shadow min-h-lvh bg-cover bg-center"
       style={`background-image: url('${base}media/salad.jpg')`}
     >
       <div class="min-h-dvh content-center">
@@ -42,7 +42,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         </div>
       </div>
     </div>
-    <div class="p-4 md:p-12 rounded-2xl">
+    <div class="md:mt-12 mt-4 rounded-2xl">
       <Slides />
     </div>
 

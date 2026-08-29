@@ -6,25 +6,23 @@ const imageModules = import.meta.glob<{ default: ImageMetadata }>(
   "../assets/slides/*.{jpg,jpeg,png,webp}",
   { eager: true },
 );
-
 const images = Object.values(imageModules).map((mod) => mod.default);
 ---
 
 <div class="relative group">
   <div
     id="slider-track"
-    class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 no-scrollbar scroll-px-8 overscroll-x-contain"
+    class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 no-scrollbar overscroll-x-contain [-webkit-overflow-scrolling:touch]"
     data-real-count={images.length}
   >
     {
       images.map((img) => (
-        <div class="slide snap-center snap-mandatory shrink-0 w-[95%] sm:w-[70%] md:w-[calc(50%-1rem)]">
+        <div class="slide snap-center shrink-0 w-[95%] sm:w-[70%] md:w-[calc(50%-1rem)]">
           <Image src={img} alt="" class="w-full h-90 rounded-lg object-cover" />
         </div>
       ))
     }
   </div>
-
   <button
     id="slider-prev"
     aria-label="Previous image"
@@ -40,13 +38,10 @@ const images = Object.values(imageModules).map((mod) => mod.default);
     <Icon name="mdi:chevron-right" class="w-6 h-6" />
   </button>
 </div>
-
 <script>
   const track = document.getElementById("slider-track") as HTMLElement;
   const prevBtn = document.getElementById("slider-prev")!;
   const nextBtn = document.getElementById("slider-next")!;
-
-  const realCount = Number(track.dataset.realCount);
   const slides = Array.from(track.querySelectorAll<HTMLElement>(".slide"));
 
   const getItemStep = () => {
@@ -55,44 +50,38 @@ const images = Object.values(imageModules).map((mod) => mod.default);
     return item.getBoundingClientRect().width + gap;
   };
 
-  // Start centered on the first real slide
-  // add inside the same <script> block, after the existing listeners
-  let wheelTimeout: ReturnType<typeof setTimeout>;
-  let isWheeling = false;
-
-  track.addEventListener(
-    "wheel",
-    (e: WheelEvent) => {
-      if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return; // let vertical page scroll pass through
-
-      e.preventDefault();
-      if (isWheeling) return; // ignore the rest of this gesture's burst
-
-      isWheeling = true;
-      scrollByItem(e.deltaX > 0 ? 1 : -1);
-
-      clearTimeout(wheelTimeout);
-      wheelTimeout = setTimeout(() => {
-        isWheeling = false;
-      }, 200); // lockout window — raise if it still double-jumps, lower if it feels sluggish
-    },
-    { passive: false },
-  );
-  let resizeTimeout: ReturnType<typeof setTimeout>;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      // Recompute current position on resize since item widths change at breakpoints
-      const step = getItemStep();
-      const currentIndex = Math.round(track.scrollLeft / step);
-      track.scrollTo({ left: currentIndex * step, behavior: "auto" });
-    }, 150);
-  });
-
   const scrollByItem = (direction: 1 | -1) => {
     const step = getItemStep();
     track.scrollBy({ left: step * direction, behavior: "smooth" });
   };
+
+  let wheelTimeout: ReturnType<typeof setTimeout>;
+  let isWheeling = false;
+  track.addEventListener(
+    "wheel",
+    (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      if (isWheeling) return;
+      isWheeling = true;
+      scrollByItem(e.deltaX > 0 ? 1 : -1);
+      clearTimeout(wheelTimeout);
+      wheelTimeout = setTimeout(() => {
+        isWheeling = false;
+      }, 50);
+    },
+    { passive: false },
+  );
+
+  let resizeTimeout: ReturnType<typeof setTimeout>;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const step = getItemStep();
+      const currentIndex = Math.round(track.scrollLeft / step);
+      track.scrollTo({ left: currentIndex * step, behavior: "auto" });
+    }, 50);
+  });
 
   prevBtn.addEventListener("click", () => scrollByItem(-1));
   nextBtn.addEventListener("click", () => scrollByItem(1));
