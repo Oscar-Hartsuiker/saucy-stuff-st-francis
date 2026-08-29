@@ -5,6 +5,7 @@ import { getCollection, render } from "astro:content";
 import Contact from "../components/whatsapp.astro";
 import About from "../components/about.astro";
 import Testimonials from "../components/testimonials.astro";
+import Slides from "../components/image-slide.astro";
 import { Icon } from "astro-icon/components";
 const base = import.meta.env.BASE_URL;
 const posts = await getCollection("blog"); // ← your collection name
@@ -23,7 +24,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
   <main>
     <div
       id="home"
-      class="min-w-full flex justify-center shadow min-h-lvh sm:mb-16 bg-cover bg-center"
+      class="min-w-full flex justify-center shadow min-h-lvh sm:mb-8 bg-cover bg-center"
       style={`background-image: url('${base}media/salad.jpg')`}
     >
       <div class="min-h-dvh content-center">
@@ -40,6 +41,9 @@ const { Content } = await render(latestPost); // ← renders the markdown body
           </div>
         </div>
       </div>
+    </div>
+    <div class="p-4 md:p-12 rounded-2xl">
+      <Slides />
     </div>
 
     <div
