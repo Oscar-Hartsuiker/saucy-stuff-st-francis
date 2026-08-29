@@ -78,7 +78,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         class="p-4 md:p-8 row-span-6 bg-panel drop-shadow rounded-2xl"
       >
         <p class="text-center mb-4 text-accent-1">
-          Last Updated
+          Last Updated<span> </span>
           <time
             datetime={latestPost.data.updatedDate.toISOString()}
             class="text-text-muted justify-center mb-4"
@@ -147,7 +147,7 @@ const { Content } = await render(latestPost); // ← renders the markdown body
         </div><div class="flex-3">
           <h2 class="mb-2 text-3xl text-text">Ordering</h2>
           <p class="text-text">
-            Call or Message your order and delivery address on WhatsApp at<span
+            Call or Message your order and delivery address on WhatsApp at <span
             ></span>
             <a class="text-link underline" href="https://wa.me/27813885967">
               0813885967
